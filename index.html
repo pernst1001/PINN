@@ -92,7 +92,14 @@
       font-weight: 600;
     }
     .btn:hover { transform: translateY(-1px); }
-    .btn.primary { background: var(--brand); color: var(--brand-ink); border-color: color-mix(in oklab, var(--brand), black 10%);}    
+    .btn.primary {
+        background: var(--brand);
+        color: var(--brand-ink);
+        border-color: color-mix(in oklab, var(--brand), black 10%);
+        min-width: 160px;      /* Ensures all buttons have at least this width */
+        justify-content: center;
+        text-align: center;
+}
     .btn.ghost { background: transparent; }
 
     .section { padding: 28px 0; }
