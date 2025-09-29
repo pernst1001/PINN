@@ -122,6 +122,14 @@
     footer { border-top: 1px solid var(--border); margin-top: 28px; }
     footer .container { display: grid; gap: 8px; }
     .muted { color: var(--muted); }
+
+    .affiliations { color: var(--muted); font-size: 0.95rem; }
+
+    sup {
+      font-size: 0.8em;
+      vertical-align: super;
+      line-height: 0;
+    }
   </style>
 </head>
 <body>
@@ -141,10 +149,10 @@
 
   <main id="top" class="container">
     <section class="hero">
-      <p class="subtitle">[Conference/Journal • Year]</p>
-      <h1 class="title">[Paper Title: Concise and Informative]</h1>
-      <p class="authors">[Author One], [Author Two], [Author Three] <span class="muted">et al.</span></p>
-      <p class="affiliations">[Institute/ETH Zürich], [Other Affiliations]</p>
+      <p class="subtitle">[IROS • 2025]</p>
+      <h1 class="title">[A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems]</h1>
+      <p class="authors">[Pascal Ernst]<sup>1</sup>, [Simone Gervasoni]<sup>1,2</sup>, [Derick Sivakumaran]<sup>1,2</sup>, [Enea Masina]<sup>1</sup>,  [David Sargent]<sup>1,2</sup>, [Bradley J. Nelson]<sup>2</sup>, [Quentin Boehler]<sup>2</sup></p>
+      <p class="affiliations"><sup>1</sup>MagnebotiX AG, Zurich, Switzerland<br><sup>2</sup>Multi-Scale Robotics Lab, ETH Zurich, Switzerland</p>
       <div class="cta-row">
         <a class="btn primary" href="assets/paper.pdf" download>Download Paper (PDF)</a>
         <a class="btn" href="assets/poster.pdf" download>Download Poster (PDF)</a>
@@ -178,12 +186,10 @@
       <div class="downloads">
         <div class="dl">
           <h3>Paper (PDF)</h3>
-          <small>File: <code>assets/paper.pdf</code></small>
           <a class="btn" href="assets/paper.pdf" download>Download</a>
         </div>
         <div class="dl">
           <h3>Poster (PDF)</h3>
-          <small>File: <code>assets/poster.pdf</code></small>
           <a class="btn" href="assets/poster.pdf" download>Download</a>
         </div>
         <!-- <div class="dl">
