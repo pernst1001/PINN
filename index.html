@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Paper Title] — Project Landing Page</title>
+  <meta name="description" content="Landing page for [Paper Title]. Download the paper, poster, and slides; view the graphical abstract and read the abstract.">
+  <link rel="canonical" href="https://your-username.github.io/your-repo/" />
+  <meta name="theme-color" content="#005EB8" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="[Paper Title]" />
+  <meta property="og:description" content="Download paper/poster/slides; view graphical abstract; read abstract." />
+  <meta property="og:image" content="assets/graphical-abstract.png" />
+  <meta property="og:url" content="https://your-username.github.io/your-repo/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      /* ETH Blue (approx). Replace with official hex if desired from ETH CD guide. */
+      --brand: #005EB8;
+      --brand-ink: #ffffff;
+      --bg: #f7fafc;
+      --text: #0f172a;  /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --radius: 16px;
+      --maxw: 1000px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --card: #0f172a;
+        --border: #1f2937;
+        --shadow: 0 16px 40px rgba(0,0,0,0.45);
+      }
+    }
+    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(180deg, var(--bg), #fff0);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    header.site {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: color-mix(in oklab, var(--bg), transparent 15%);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-grid { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px; background: var(--brand);
+      box-shadow: inset 0 -6px 12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+    .brand-title { font-weight: 700; letter-spacing: 0.2px; }
+    nav a { text-decoration: none; color: var(--text); opacity: 0.8; margin-left: 16px; }
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      padding: 64px 0 32px;
+    }
+    .title {
+      font-size: clamp(28px, 3.2vw + 12px, 56px);
+      line-height: 1.1; margin: 4px 0 12px;
+    }
+    .subtitle { color: var(--muted); margin-top: 8px; }
+    .authors { color: var(--muted); margin: 8px 0 20px; }
+    .affiliations { color: var(--muted); font-size: 0.95rem; }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .btn {
+      appearance: none; border: 1px solid var(--border); background: var(--card);
+      padding: 12px 16px; border-radius: 12px; text-decoration: none; color: var(--text);
+      display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow);
+      transition: transform .08s ease, box-shadow .2s ease, background .2s;
+      font-weight: 600;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: var(--brand); color: var(--brand-ink); border-color: color-mix(in oklab, var(--brand), black 10%);}    
+    .btn.ghost { background: transparent; }
+
+    .section { padding: 28px 0; }
+    .section h2 { font-size: clamp(22px, 1.6vw + 10px, 32px); margin: 8px 0 16px; }
+
+    .grid {
+      display: grid; gap: 20px; grid-template-columns: 1fr; align-items: start;
+    }
+    @media (min-width: 900px) { .grid.two { grid-template-columns: 1.1fr 0.9fr; } }
+
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 18px;
+    }
+    figure {
+      margin: 0; display: grid; gap: 12px;
+    }
+    figure img {
+      width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border);
+    }
+    figcaption { color: var(--muted); font-size: 0.95rem; }
+
+    .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .dl {
+      display: grid; gap: 10px; padding: 16px; border: 1px dashed var(--border); border-radius: 14px; background: color-mix(in oklab, var(--brand), var(--card) 92%);
+    }
+    .dl h3 { margin: 0; font-size: 1.02rem; }
+    .dl small { color: var(--muted); }
+
+    pre {
+      background: #0b1020; color: #E2E8F0; padding: 16px; border-radius: 12px; overflow: auto; border: 1px solid #111827;
+      font-size: 0.9rem; line-height: 1.4;
+    }
+
+    footer { border-top: 1px solid var(--border); margin-top: 28px; }
+    footer .container { display: grid; gap: 8px; }
+    .muted { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container site-grid">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-title">[Project/Group]</span>
+      </a>
+      <nav>
+        <a href="#abstract">Abstract</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#citation">Cite</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <p class="subtitle">[Conference/Journal • Year]</p>
+      <h1 class="title">[Paper Title: Concise and Informative]</h1>
+      <p class="authors">[Author One], [Author Two], [Author Three] <span class="muted">et al.</span></p>
+      <p class="affiliations">[Institute/ETH Zürich], [Other Affiliations]</p>
+      <div class="cta-row">
+        <a class="btn primary" href="assets/paper.pdf" download>Download Paper (PDF)</a>
+        <a class="btn" href="assets/poster.pdf" download>Download Poster (PDF)</a>
+        <a class="btn" href="assets/slides.pptx" download>Download Slides (PPTX)</a>
+        <!-- Optional external links: arXiv / GitHub / Video
+        <a class="btn ghost" href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener">View on arXiv</a>
+        <a class="btn ghost" href="https://github.com/your-username/your-repo" target="_blank" rel="noopener">Code</a>
+        <a class="btn ghost" href="#" target="_blank" rel="noopener">Video</a>
+        -->
+      </div>
+    </section>
+
+    <section class="section grid two" aria-labelledby="ga">
+      <div>
+        <h2 id="ga">Graphical Abstract</h2>
+        <figure>
+          <img src="assets/graphical-abstract.jpg" alt="Graphical abstract illustrating the core idea of [Paper Title]. Replace with your image." />
+          <figcaption>Figure 1: Graphical abstract. Replace with a 1600×900 PNG/JPG for best social previews.</figcaption>
+        </figure>
+      </div>
+      <article id="abstract" class="card" aria-labelledby="abst">
+        <h2 id="abst">Abstract</h2>
+        <p>[Paste your abstract here. Keep it ~150–250 words. Use precise language.]
+        </p>
+        <p class="muted">Keywords: [keyword 1], [keyword 2], [keyword 3]</p>
+      </article>
+    </section>
+
+    <section id="downloads" class="section" aria-labelledby="dlh">
+      <h2 id="dlh">Downloads</h2>
+      <div class="downloads">
+        <div class="dl">
+          <h3>Paper (PDF)</h3>
+          <small>File: <code>assets/paper.pdf</code></small>
+          <a class="btn" href="assets/paper.pdf" download>Download</a>
+        </div>
+        <div class="dl">
+          <h3>Poster (PDF)</h3>
+          <small>File: <code>assets/poster.pdf</code></small>
+          <a class="btn" href="assets/poster.pdf" download>Download</a>
+        </div>
+        <!-- <div class="dl">
+          <h3>Slides (PPTX)</h3>
+          <small>File: <code>assets/slides.pptx</code></small>
+          <a class="btn" href="assets/slides.pptx" download>Download</a>
+        </div> -->
+      </div>
+    </section>
+
+    <section id="citation" class="section" aria-labelledby="cite">
+      <h2 id="cite">Citation</h2>
+      <p class="muted">Please cite as:</p>
+      <p>[Authors]. <em>[Paper Title]</em>. In: [Venue, Year].</p>
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap: 8px; flex-wrap: wrap;">
+          <strong>BibTeX</strong>
+          <button class="btn" id="copyBibtex" type="button">Copy</button>
+        </div>
+        <pre id="bibtex">@inproceedings{Lastname2025Title,
+  title        = {[Paper Title]},
+  author       = {[Author One] and [Author Two] and [Author Three]},
+  booktitle    = {[Conference/Journal]},
+  year         = {2025},
+  institution  = {ETH Zürich},
+  url          = {https://your-username.github.io/your-repo/}
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small class="muted">© 2025 [Your Group or Authors]. Hosted on GitHub Pages. ETH Zürich blue theme.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Copy BibTeX helper
+    const btn = document.getElementById('copyBibtex');
+    btn?.addEventListener('click', async () => {
+      try {
+        const text = document.getElementById('bibtex').innerText;
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied!';
+        setTimeout(() => (btn.textContent = 'Copy'), 1600);
+      } catch (e) {
+        alert('Copy failed. Select and copy manually.');
+      }
+    });
+  </script>
+</body>
+</html>
