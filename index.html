@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>[Paper Title] — Project Landing Page</title>
-  <meta name="description" content="Landing page for [Paper Title]. Download the paper, poster, and slides; view the graphical abstract and read the abstract.">
+  <title>PINN - A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems</title>
+  <meta name="description" content="Landing page for PINN - A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems. Download the paper, poster, and slides; view the graphical abstract and read the abstract.">
   <link rel="canonical" href="https://your-username.github.io/your-repo/" />
   <meta name="theme-color" content="#005EB8" />
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="[Paper Title]" />
+  <meta property="og:title" content="A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems" />
   <meta property="og:description" content="Download paper/poster/slides; view graphical abstract; read abstract." />
   <meta property="og:image" content="assets/graphical-abstract.png" />
   <meta property="og:url" content="https://your-username.github.io/your-repo/" />
@@ -19,9 +19,9 @@
       /* ETH Blue (approx). Replace with official hex if desired from ETH CD guide. */
       --brand: #005EB8;
       --brand-ink: #ffffff;
-      --bg: #f7fafc;
-      --text: #0f172a;  /* slate-900 */
-      --muted: #475569; /* slate-600 */
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #666666;
       --card: #ffffff;
       --border: #e2e8f0;
       --radius: 16px;
@@ -30,12 +30,12 @@
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0b1220;
-        --text: #e2e8f0;
-        --muted: #94a3b8;
-        --card: #0f172a;
-        --border: #1f2937;
-        --shadow: 0 16px 40px rgba(0,0,0,0.45);
+        --bg: #ffffff;
+        --text: #000000;
+        --muted: #666666;
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
       }
     }
     html { scroll-behavior: smooth; }
@@ -43,9 +43,10 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: linear-gradient(180deg, var(--bg), #fff0);
+      background: #ffffff;
       color: var(--text);
       line-height: 1.6;
+      font-size: 18px
     }
     .container { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
     header.site {
@@ -72,13 +73,20 @@
       line-height: 1.1; margin: 4px 0 12px;
     }
     .subtitle { color: var(--muted); margin-top: 8px; }
-    .authors { color: var(--muted); margin: 8px 0 20px; }
-    .affiliations { color: var(--muted); font-size: 0.95rem; }
+    /* .authors { color: var(--muted); margin: 8px 0 8px; font-size: 20px; } */
+    .authors { 
+      color: var(--muted); 
+      margin: 8px 0 8px; 
+      font-size: clamp(14px, 2vw + 8px, 20px);
+      line-height: 1.3;
+      max-width: 70%;
+    }
+    .affiliations { color: var(--muted); font-size: 0.95rem; margin-top: 12px}
 
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
     .btn {
       appearance: none; border: 1px solid var(--border); background: var(--card);
-      padding: 12px 16px; border-radius: 12px; text-decoration: none; color: var(--text);
+      padding: 12px 20px; border-radius: 12px; text-decoration: none; color: var(--text);
       display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow);
       transition: transform .08s ease, box-shadow .2s ease, background .2s;
       font-weight: 600;
@@ -103,8 +111,11 @@
       margin: 0; display: grid; gap: 12px;
     }
     figure img {
-      width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border);
-    }
+        width: 100%;
+        height: auto;
+        border: none;
+        border-radius: 0;
+        }
     figcaption { color: var(--muted); font-size: 0.95rem; }
 
     .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
@@ -136,94 +147,68 @@
   <header class="site">
     <div class="container site-grid">
       <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-title">[Project/Group]</span>
+        <span class="brand-title">IROS • 2025</span>
       </a>
-      <nav>
-        <a href="#abstract">Abstract</a>
-        <a href="#downloads">Downloads</a>
-        <a href="#citation">Cite</a>
-      </nav>
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-title">Multi-Scale Robotics Lab</span>
+      </a>
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-title">Magnebotix AG</span>
+      </a>
+      
     </div>
   </header>
 
   <main id="top" class="container">
     <section class="hero">
-      <p class="subtitle">[IROS • 2025]</p>
-      <h1 class="title">[A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems]</h1>
-      <p class="authors">[Pascal Ernst]<sup>1</sup>, [Simone Gervasoni]<sup>1,2</sup>, [Derick Sivakumaran]<sup>1,2</sup>, [Enea Masina]<sup>1</sup>,  [David Sargent]<sup>1,2</sup>, [Bradley J. Nelson]<sup>2</sup>, [Quentin Boehler]<sup>2</sup></p>
+      <h1 class="title">A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems</h1>
+      <p class="authors">Pascal Ernst<sup>1</sup>, Simone Gervasoni<sup>1,2</sup>, Derick Sivakumaran<sup>1,2</sup>, Enea Masina<sup>1</sup>, David Sargent<sup>1,2</sup>, Bradley J. Nelson<sup>2</sup>, Quentin Boehler<sup>2</sup></p>
+      <!-- <p class="authors">David Sargent<sup>1,2</sup>, Bradley J. Nelson<sup>2</sup>, Quentin Boehler<sup>2</sup></p> -->
       <p class="affiliations"><sup>1</sup>MagnebotiX AG, Zurich, Switzerland<br><sup>2</sup>Multi-Scale Robotics Lab, ETH Zurich, Switzerland</p>
+        <p class="subtitle">International Conference on Intelligent Robots and Systems (IROS 2025)</p>
       <div class="cta-row">
-        <a class="btn primary" href="assets/paper.pdf" download>Download Paper (PDF)</a>
-        <a class="btn" href="assets/poster.pdf" download>Download Poster (PDF)</a>
-        <a class="btn" href="assets/slides.pptx" download>Download Slides (PPTX)</a>
-        <!-- Optional external links: arXiv / GitHub / Video
-        <a class="btn ghost" href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank" rel="noopener">View on arXiv</a>
-        <a class="btn ghost" href="https://github.com/your-username/your-repo" target="_blank" rel="noopener">Code</a>
-        <a class="btn ghost" href="#" target="_blank" rel="noopener">Video</a>
-        -->
+        <a class="btn primary" href="assets/paper.pdf" download>Paper (PDF)</a>
+        <a class="btn primary" href="assets/poster.pdf" download>Poster (PDF)</a>
+        <a class="btn primary" href="assets/slides.pptx" download>Slides (PPTX)</a>
       </div>
     </section>
 
-    <section class="section grid two" aria-labelledby="ga">
-      <div>
-        <h2 id="ga">Graphical Abstract</h2>
-        <figure>
-          <img src="assets/graphical-abstract.jpg" alt="Graphical abstract illustrating the core idea of [Paper Title]. Replace with your image." />
-          <figcaption>Figure 1: Graphical abstract. Replace with a 1600×900 PNG/JPG for best social previews.</figcaption>
-        </figure>
-      </div>
-      <article id="abstract" class="card" aria-labelledby="abst">
-        <h2 id="abst">Abstract</h2>
-        <p>[Paste your abstract here. Keep it ~150–250 words. Use precise language.]
+    <section class="section" aria-labelledby="abstract">
+        <h2 id="abstract">Abstract</h2>
+        <p>Electromagnetic Navigation Systems enable remote actuation of untethered micro and nanorobots, as well as the precise control of magnetic surgical tools for minimally invasive medical procedures. Accurate modeling of the magnetic fields generated by the electromagnets composing these systems is essential for achieving reliable and precise navigation. Existing modeling approaches either neglect nonlinear effects such as electromagnet saturation or fail to ensure that the field predictions are physically consistent. These limitations can lead to significant prediction errors, particularly in the estimation of field gradients, which directly impacts force calculations. As a result, inaccurate gradient predictions degrade force control performance, limiting the precision of magnetic actuation. In this work, we investigate physics-informed and data-driven modeling techniques to improve the accuracy of magnetic field and gradient predictions. Additionally, we introduce an approach for solving the inverse problem, developing models capable of predicting the required electromagnet currents to generate a desired magnetic field and gradient based on this approach. By incorporating physical constraints into the models, we enhance the predictive accuracy and physical consistency of the field estimates. In the experimental section, we demonstrate the benefits of these methods to enable improved force control in open-loop for untethered robots using a smallscale Electromagnetic Navigation System.
+            <figure>
+                <img src="assets/graphical-abstract.jpg"/>
+            </figure>
         </p>
-        <p class="muted">Keywords: [keyword 1], [keyword 2], [keyword 3]</p>
-      </article>
     </section>
 
-    <section id="downloads" class="section" aria-labelledby="dlh">
-      <h2 id="dlh">Downloads</h2>
-      <div class="downloads">
-        <div class="dl">
-          <h3>Paper (PDF)</h3>
-          <a class="btn" href="assets/paper.pdf" download>Download</a>
-        </div>
-        <div class="dl">
-          <h3>Poster (PDF)</h3>
-          <a class="btn" href="assets/poster.pdf" download>Download</a>
-        </div>
-        <!-- <div class="dl">
-          <h3>Slides (PPTX)</h3>
-          <small>File: <code>assets/slides.pptx</code></small>
-          <a class="btn" href="assets/slides.pptx" download>Download</a>
-        </div> -->
-      </div>
-    </section>
-
+    
     <section id="citation" class="section" aria-labelledby="cite">
-      <h2 id="cite">Citation</h2>
-      <p class="muted">Please cite as:</p>
-      <p>[Authors]. <em>[Paper Title]</em>. In: [Venue, Year].</p>
-      <div class="card">
+        <h2 id="cite">BibTeX</h2>
+        <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:center; gap: 8px; flex-wrap: wrap;">
           <strong>BibTeX</strong>
           <button class="btn" id="copyBibtex" type="button">Copy</button>
         </div>
-        <pre id="bibtex">@inproceedings{Lastname2025Title,
-  title        = {[Paper Title]},
-  author       = {[Author One] and [Author Two] and [Author Three]},
-  booktitle    = {[Conference/Journal]},
-  year         = {2025},
-  institution  = {ETH Zürich},
-  url          = {https://your-username.github.io/your-repo/}
-}</pre>
-      </div>
+        <pre id="bibtex">@inproceedings{Ernst2025PINN,
+            title        = {A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems},
+            author       = {Pascal Ernst and Simone Gervasoni and Derick Sivakumaran and Enea Masina and David Sargent and Bradley J. Nelson and Quentin Boehler},
+            booktitle    = {Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+            year         = {2025},
+        }</pre>
+    </div>
     </section>
+
+<section class="section" aria-labelledby="contact">
+    <h2 id="contact">Contact</h2>
+    <p class="muted">For any questions, please feel free to contact <a href="mailto:pernst@ethz.ch">pernst@ethz.ch</a> and <a href="mailto:qboehler@ethz.ch">qboehler@ethz.ch</a>.</p>
+</section>
+
   </main>
 
   <footer>
     <div class="container">
-      <small class="muted">© 2025 [Your Group or Authors]. Hosted on GitHub Pages. ETH Zürich blue theme.</small>
+      <small class="muted">© IROS 2025; A Physics-Informed Neural Network for the Calibration of Electromagnetic Navigation Systems</small>
     </div>
   </footer>
 
